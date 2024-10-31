@@ -95,13 +95,15 @@ perlinTexture.wrapT= THREE.RepeatWrapping
 // smokeGeometry.
 const smokeMaterial= new THREE.ShaderMaterial({ 
     vertexShader: smokeVertex, 
-    fragmentShader: smokeFragmet, 
+    fragmentShader: smokeFragmet,
+    //wireframe: true,
     uniforms: {
         uTime: new THREE.Uniform(0),
         uPerlinTexture: new THREE.Uniform( perlinTexture),
     },
     side: THREE.DoubleSide,
-    transparent: true
+    transparent: true,
+    depthWrite: false
 })
 const smoke = new THREE.Mesh(smokeGeometry, smokeMaterial)
 smoke.position.y = 1.83
